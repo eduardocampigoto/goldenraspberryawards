@@ -74,7 +74,7 @@ public class DBInitializer {
     private void setOrCreateProducer(String producerColumn, Title title) {
 
         Stream.of(producerColumn)
-                .map(p -> p.split("(,|\sand\s)"))
+                .map(p -> p.split("(,|\s and \s)"))
                 .flatMap(Arrays::stream)
                 .collect(Collectors.toList())
                 .forEach(p -> {
@@ -105,7 +105,6 @@ public class DBInitializer {
         if (title.getStudios() == null) {
             title.setStudios(new HashSet());
         }
-
         title.getStudios().add(studio);
     }
 }
